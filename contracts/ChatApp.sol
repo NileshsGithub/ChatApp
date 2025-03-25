@@ -109,7 +109,7 @@ contract ChatApp {
         return allMessages[chatCode];
     }
 
-    function getAllAppUser() public view returns(AllUserStruck[] memory){
+    function AppUser() public view returns(AllUserStruck[] memory){
         return getAllUsers;
     }
 }

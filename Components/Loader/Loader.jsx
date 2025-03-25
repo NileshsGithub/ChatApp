@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Loadre = () => {
+export const Loader = () => {
   return (
     <div>Loadre</div>
   )
