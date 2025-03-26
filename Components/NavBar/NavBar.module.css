@@ -76,8 +76,7 @@
    position: fixed;
    inset: 0 0 0 0;
    background-color: #292f3f;
-   z-index: 77777777;
-
+   z-index: 9999;
 }
  @media only screen and (max-width: 35em){
    .NavBar{

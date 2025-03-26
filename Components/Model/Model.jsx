@@ -38,47 +38,54 @@ const Model = ({
           <p>{info}</p>
           <small>{smallInfo}</small>
 
-          <div className={style.Model_box_right_name}>
-            <div className={style.Model_box_right_name_info}>
-              <Image src={images.username} alt="user" width={30} height={30}/>
-              <input 
-                type='text' 
-                placeholder="Your name"
-                onChange={(e)=>setName(e.target.value)}
-              />
+          {
+            loading == true ?(
+              <Loader/>
+            ) : (
+              <div className={style.Model_box_right_name}>
+              <div className={style.Model_box_right_name_info}>
+                <Image src={images.username} alt="user" width={30} height={30}/>
+                <input 
+                  type='text' 
+                  placeholder="Your name"
+                  onChange={(e)=>setName(e.target.value)}
+                />
+              </div>
+              <div className={style.Model_box_right_name_info}>
+                <Image src={images.account} alt="user" width={30} height={30}/>
+                <input 
+                  type='text' 
+                  placeholder={address ||"Enter address.."}
+                  onChange={(e)=>setAccountAddress(e.target.value)}
+                />
+              </div>
+              
+              <div className={style.Model_box_right_name_btn}>
+                <button 
+                  onClick={()=>functionName({name, accountAddress})}>
+                  {""}
+                  <Image src={images.send} alt="send" width={30} height={30}/>
+                  {""}
+                  Submit
+                </button>
+  
+                <button 
+                  onClick={() => openBox(false)}>
+                  {""}
+                  <Image src={images.close} alt="send" width={30} height={30}/>
+                  {""}
+                  Cancel
+                </button>
+              </div>
             </div>
-            <div className={style.Model_box_right_name_info}>
-              <Image src={images.account} alt="user" width={30} height={30}/>
-              <input 
-                type='text' 
-                placeholder={address ||"Enter address.."}
-                onChange={(e)=>setAccountAddress(e.target.value)}
-              />
-            </div>
-            
-            <div className={style.Model_box_right_name_btn}>
-              <button 
-                onClick={()=>functionName({name, accountAddress})}>
-                {""}
-                <Image src={images.send} alt="send" width={30} height={30}/>
-                {""}
-                Submit
-              </button>
+            )
+          }
 
-              <button 
-                onClick={() => openBox(false)}>
-                {""}
-                <Image src={images.close} alt="send" width={30} height={30}/>
-                {""}
-                Cancel
-              </button>
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>
-  )
-  
+  ); 
 };
 
 export default Model;
