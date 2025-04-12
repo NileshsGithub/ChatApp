@@ -15,7 +15,7 @@ export const CheckIfWalletConnected = async() =>{
         return firstAccount;
     }catch(error){
         console.log(error)
-    }    
+    }     
 }
 
 export const connectWallet = async()=>{

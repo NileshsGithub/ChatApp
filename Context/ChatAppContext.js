@@ -39,8 +39,8 @@ export const ChatAppProvider = ({children}) =>{
             setAccount(connectAccount);
 
             // GET USER NAME
-            // const userName = await contract.getUsernchatame(connectAccount);
-            // setUserName(userName); 
+            const userName = await contract.getUsernchatame(connectAccount);
+            setUserName(userName); 
 
             // GET MY FRIENDLIST
             const friendList = await contract.getMyFriendList(); 
@@ -51,7 +51,7 @@ export const ChatAppProvider = ({children}) =>{
             setuserLists(userList);
 
         }catch(error){
-            setError("Please install and connect your wallet");
+            // setError("Please install and connect your wallet");
         }
     };
 
@@ -65,7 +65,7 @@ export const ChatAppProvider = ({children}) =>{
             const read = await contract.getMessage(friendAddress);
             setfriendMsg(read);
         }catch(error){
-            setError("Currently you have no message");
+            console.log("Currently you have no message");
         }
     };
 
@@ -75,7 +75,7 @@ export const ChatAppProvider = ({children}) =>{
             if(name || accountAddress) return setError("name and account address cantnot be empty");
             const contract = await connectingWithContract();
             const getcreatedUser = await contract.createAccount(name);
-            setLoading(true);
+            setLoading(true);   
             await getcreatedUser.wait();
             setLoading(false);
             window.location.reload();
